@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cars index{% endblock %}
+
+{% block body %}
+    <h1>Cars index</h1>
+    <div class="content-list">
+        {% for car in cars %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">id : {{ car.id }}</p>
+                        <p class="card-text">nom : {{ car.model }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ path('app_car_show', {'id': car.id}) }}" class="card-link btn btn-dark">Show</a>
+                        <a href="{{ path('app_car_edit', {'id': car.id}) }}" class="card-link btn btn-dark">edit</a>
+                    </div>
+                </div>
+        {% else %}
+            <p>no cars found</p>
+        {% endfor %}
+    </div>
+    <a href="{{ path('app_car_new') }}" class="btn btn-success">Create new</a>
+{% endblock %}

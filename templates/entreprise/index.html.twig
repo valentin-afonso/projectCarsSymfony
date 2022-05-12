@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise index{% endblock %}
+
+{% block body %}
+    <h1>Entreprise index</h1>
+
+
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entreprise in entreprises %}
+        <tr>
+            <th scope="row">{{ entreprise.id }}</th>
+            <td>{{ entreprise.nom }}</td>
+            <td>{{ entreprise.ville }}</td>
+            <td>
+                <a href="{{ path('app_user_show', {'id': entreprise.id}) }}" class="btn btn-dark">show</a>
+                <a href="{{ path('app_user_edit', {'id': entreprise.id}) }}" class="btn btn-dark">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">no entreprise found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    <a href="{{ path('app_entreprise_new') }}" class="btn btn-success">Create new</a>
+{% endblock %}

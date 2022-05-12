@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trailer index{% endblock %}
+
+{% block body %}
+    <h1>Trailer index</h1>
+
+
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for trailer in trailers %}
+        <tr>
+            <th scope="row">{{ trailer.id }}</th>
+            <td>{{ trailer.nom }}</td>
+            <td>
+                <a href="{{ path('app_trailer_show', {'id': trailer.id}) }}" class="btn btn-dark">show</a>
+                <a href="{{ path('app_trailer_edit', {'id': trailer.id}) }}" class="btn btn-dark">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">no trailer found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a href="{{ path('app_trailer_new') }}" class="btn btn-success">Create new</a>
+{% endblock %}
