@@ -24,6 +24,11 @@ class Trailer
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Car::class)
+     */
+    private $car;
+
     public function __construct()
     {
         $this->car = new ArrayCollection();
@@ -44,6 +49,10 @@ class Trailer
         $this->nom = $nom;
 
         return $this;
+    }
+    public function getCars(): Collection
+    {
+        return $this->car;
     }
     public function __toString(): string
     {

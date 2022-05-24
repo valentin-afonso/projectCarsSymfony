@@ -14,7 +14,6 @@
             <tr>
                 <th>Nom</th>
                 <td>{{ trailer.nom }}</td>
-            </tr>
         </tbody>
     </table>
 
@@ -24,6 +23,13 @@
 
     {{ include('trailer/_delete_form.html.twig') }}
 
+    {% for car in trailer.cars %}
+
+        <div>{{ car.id }}</div>
+        {% else %}
+        <p>
+        Pas de voitures</p>
+    {% endfor %}
 
     
 {% endblock %}

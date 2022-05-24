@@ -16,8 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
-
-    $em = 1;
     /**
      * @Route("/", name="app_user_index", methods={"GET"})
      */

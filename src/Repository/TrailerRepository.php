@@ -47,21 +47,6 @@ class TrailerRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
-    public function findCarsCompatible(Trailer $entity): array
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $entity)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
-    }
-
     //    /**
     //     * @return Trailer[] Returns an array of Trailer objects
     //     */
